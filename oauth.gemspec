@@ -56,6 +56,7 @@ Gem::Specification.new do |s|
     "lib/oauth/request_proxy/net_http.rb",
     "lib/oauth/request_proxy/rack_request.rb",
     "lib/oauth/request_proxy/typhoeus_request.rb",
+    "lib/oauth/request_proxy/rest_client_request.rb"
     "lib/oauth/server.rb",
     "lib/oauth/signature.rb",
     "lib/oauth/signature/base.rb",
@@ -124,6 +125,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<typhoeus>, [">= 0.1.13"])
       s.add_development_dependency(%q<em-http-request>, [">= 0.2.10"])
       s.add_development_dependency(%q<curb>, [">= 0.6.6.0"])
+       s.add_dependency(%q<rest-client>, [">= 1.6.7"])
     else
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -133,6 +135,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<typhoeus>, [">= 0.1.13"])
       s.add_dependency(%q<em-http-request>, [">= 0.2.10"])
       s.add_dependency(%q<curb>, [">= 0.6.6.0"])
+      s.add_dependency(%q<rest-client>, [">= 1.6.7"])
     end
   else
     s.add_dependency(%q<rake>, [">= 0"])
@@ -143,6 +146,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<typhoeus>, [">= 0.1.13"])
     s.add_dependency(%q<em-http-request>, [">= 0.2.10"])
     s.add_dependency(%q<curb>, [">= 0.6.6.0"])
+    s.add_dependency(%q<rest-client>, [">= 1.6.7"])
   end
 end
 
