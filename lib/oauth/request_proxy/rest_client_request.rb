@@ -35,7 +35,7 @@ module OAuth::RequestProxy::RestClient
       
       def post_parameters
         # Post params are only used if posting form data
-        if method == 'POST'
+        if method == 'POST' || method == 'PUT'
           OAuth::Helper.stringify_keys(query_string_to_hash(request.payload.to_s) || {})
         else
           {}
