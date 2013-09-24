@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "oauth"
-  s.version = "0.4.7"
+  s.version = "0.4.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pelle Braendgaard", "Blaine Cook", "Larry Halff", "Jesse Clark", "Jon Crosby", "Seth Fitzsimmons", "Matt Sanford", "Aaron Quint"]
@@ -56,7 +56,7 @@ Gem::Specification.new do |s|
     "lib/oauth/request_proxy/net_http.rb",
     "lib/oauth/request_proxy/rack_request.rb",
     "lib/oauth/request_proxy/typhoeus_request.rb",
-    "lib/oauth/request_proxy/rest_client_request.rb"
+    "lib/oauth/request_proxy/rest_client_request.rb",
     "lib/oauth/server.rb",
     "lib/oauth/signature.rb",
     "lib/oauth/signature/base.rb",
@@ -106,7 +106,8 @@ Gem::Specification.new do |s|
     "test/test_signature_base.rb",
     "test/test_signature_plain_text.rb",
     "test/test_token.rb",
-    "test/test_typhoeus_request_proxy.rb"
+    "test/test_typhoeus_request_proxy.rb",
+    "test/test_rest_client_request_proxy.rb"
   ]
   s.require_paths = ["lib"]
   s.rubyforge_project = "oauth"
