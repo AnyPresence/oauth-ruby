@@ -18,7 +18,7 @@ begin
     s.add_development_dependency(%q<typhoeus>, [">= 0.1.13"])
     s.add_development_dependency(%q<em-http-request>, [">= 0.2.10"])
     s.add_development_dependency(%q<curb>, [">= 0.6.6.0"])
-    
+    s.add_development_dependency(%q<rest-client>, [">= 1.6.7"])
     s.files.include '.gemtest'
   end
   Jeweler::GemcutterTasks.new

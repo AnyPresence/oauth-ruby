@@ -1,5 +1,6 @@
 require 'oauth/request_proxy/base'
 require 'rest-client'
+require 'restclient/request'
 require 'uri'
 require 'cgi'
 

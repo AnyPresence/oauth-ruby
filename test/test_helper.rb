@@ -5,10 +5,10 @@ $LOAD_PATH << File.dirname(__FILE__) + '/../lib/'
 require 'oauth'
 require 'mocha'
 require 'stringio'
-require 'webmock'
+#require 'webmock'
 
 class Test::Unit::TestCase
-  include WebMock::API
+  #include WebMock::API
 
   def assert_matching_headers(expected, actual)
     # transform into sorted arrays
