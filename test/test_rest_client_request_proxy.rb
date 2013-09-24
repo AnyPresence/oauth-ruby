@@ -3,6 +3,9 @@ require File.expand_path('../test_helper', __FILE__)
 begin
   require 'oauth/request_proxy/rest_client_request'
   require 'rest-client'
+  require 'oauth/request_proxy/typhoeus_request'
+  require 'typhoeus'
+  require 'debugger'
   
   class RestlClientRequestProxyTest < Test::Unit::TestCase
   
@@ -73,6 +76,43 @@ begin
       assert_equal expected_parameters, request_proxy.parameters_for_signature
       assert_equal 'http://example.com/test', request_proxy.normalized_uri
       assert_equal 'POST', request_proxy.method
+    end
+    
+    def test_should_remove
+      p "hi mastercard"
+
+      cosumer_key = "KXydlOacvKZULi_bcJJV4Btfl3ev7UjbVaib9n1L4ec243a7!4b58647657676646794d484a2b4951644b345a4e70673d3d" # key from MC site
+
+      private_key =  File.read("/Users/khem/Documents/RailsWorkspace/TestRuby-latest/private_key_regen_mobile.pem")
+      consumer = OAuth::Consumer.new(cosumer_key, private_key, :site => "")
+
+      request_token = ""
+      
+      uri = "http://localhost:9000/api/"
+      options = {method: :get, headers: { Accept: "text/json" }}
+
+      access_token = OAuth::ConsumerToken.from_hash(consumer, {oauth_token_secret: request_token, oauth_token: ""})
+
+      oauth_params = {:signature_method => "RSA-SHA1", :token => access_token, :consumer => consumer}
+      
+      # hydra = Typhoeus::Hydra.new
+      # req = Typhoeus::Request.new(uri, options)
+      req = ::RestClient::Request.new(url: uri, method: :get,  headers: { Accept: "text/json" })
+      oauth_helper = OAuth::Client::Helper.new(req, oauth_params.merge(:request_uri => uri))
+      # req.options[:headers].merge!({"Authorization" => oauth_helper.header}) # Signs the request
+      req.headers.merge!({"Authorization" => oauth_helper.header}) # Signs the request
+      debugger
+      response = req.execute
+      p "response: #{response.to_s}"
+      p "response: #{response.code}"
+      p "response: #{response.body}"
+      
+      # hydra.queue(req)
+      # hydra.run
+      # response = req.response
+      # p "response: #{response.to_s}"
+      # p "response: #{response.code}"
+      # p "response: #{response.body}"
     end
     
   end
