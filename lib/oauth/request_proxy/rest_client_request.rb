@@ -24,6 +24,10 @@ module OAuth::RequestProxy::RestClient
         end
       end
 
+      def body
+        request.payload.to_s
+      end
+
     protected
 
       def query_params
