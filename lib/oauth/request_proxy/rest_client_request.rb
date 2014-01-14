@@ -6,7 +6,7 @@ require 'cgi'
 
 module OAuth::RequestProxy::RestClient
   class Request < OAuth::RequestProxy::Base
-    proxies RestClient::Request
+      proxies RestClient::Request
     
       def method
         request.method.to_s.upcase
@@ -25,7 +25,9 @@ module OAuth::RequestProxy::RestClient
       end
 
       def body
-        request.payload.to_s
+        request.payload.inspect
+        cleaned_str = request.payload.inspect.gsub(/\n/, "")
+        cleaned_str[1..cleaned_str.length-2]
       end
 
     protected
